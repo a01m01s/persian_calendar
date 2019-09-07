@@ -10,14 +10,14 @@ class CalendarTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 1.0, vertical: 30.0),
-      height: 300,
+      height: 240,
       decoration: BoxDecoration(
         color: Color(0xFF36454F),
         borderRadius: BorderRadius.circular(10.0),
       ),
       // child: Text(date.toString()),
       child: GridView.builder(
-        padding: EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(3.0),
         itemCount:
             getItemCount(getDaysOfAMonth(month, year), getDay(year, month, 1)) +
                 1 +

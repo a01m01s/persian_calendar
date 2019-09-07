@@ -34,7 +34,7 @@ Widget realIndex(
     if (index >= 0 && index < 7) {
       return Text(
         days[index],
-        style: TextStyle(color: Colors.amber[400]),
+        style: TextStyle(color: Colors.amber[400], fontSize: 13.0),
       );
     }
     // print("index- "+index.toString());
@@ -55,12 +55,11 @@ Widget realIndex(
           alignment: Alignment.center,
           child: Text(
             (index - startingDay).toString(),
-            style:
-                TextStyle(color: Colors.white70, fontWeight: FontWeight.w700),
+            style: TextStyle(
+                color: Color(0xFF00DFD4), fontWeight: FontWeight.w700),
           ),
           height: 120,
           decoration: BoxDecoration(
-            color: Color(0xFF00DFD4),
             shape: BoxShape.circle,
           ),
         ),
@@ -74,10 +73,6 @@ Widget realIndex(
           style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w700),
         ),
         height: 120,
-        // decoration: BoxDecoration(
-        //               color: Colors.white70,
-        //               borderRadius: BorderRadius.circular(50.0)
-        //             ),
       ),
     );
   }

@@ -105,11 +105,11 @@ List<int> jalaliToGregorian(int jyear, int jmonth, int jday) {
 int getDay(int jyear, int jmonth, int jday) {
   List<int> G = jalaliToGregorian(jyear, jmonth, jday);
   DateTime time = DateTime(G[0], G[1], G[2]);
-  print(time.year.toString() +
-      "-" +
-      time.month.toString() +
-      "-" +
-      time.day.toString());
+  // print(time.year.toString() +
+  //     "-" +
+  //     time.month.toString() +
+  //     "-" +
+  //     time.day.toString());
   var day = time.weekday;
   return day;
 }
