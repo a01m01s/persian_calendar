@@ -10,7 +10,7 @@ class CalendarTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 1.0, vertical: 30.0),
-      height: 240,
+      height: 250,
       decoration: BoxDecoration(
         color: Color(0xFF36454F),
         borderRadius: BorderRadius.circular(10.0),

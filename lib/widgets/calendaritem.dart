@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persian_calendar/widgets/uiwidgets/calendarnumber.dart';
 
 class CalendarItem extends StatelessWidget {
   final int index, startingDay, month, year;
@@ -50,30 +51,21 @@ Widget realIndex(
     if ((index - startingDay) == today[2] &&
         month == today[1] &&
         year == today[0]) {
-      return GestureDetector(
-        child: Container(
-          alignment: Alignment.center,
-          child: Text(
-            (index - startingDay).toString(),
-            style: TextStyle(
-                color: Color(0xFF00DFD4), fontWeight: FontWeight.w700),
-          ),
-          height: 120,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-          ),
-        ),
-      );
+      // print('selected day is:' +
+      //     year.toString() +
+      //     "/" +
+      //     month.toString() +
+      //     "/" +
+      //     (index - startingDay).toString());
+      return CalendarNumber(index, startingDay, month, year, true);
+    } else {
+      // print('selected day is:' +
+      //     year.toString() +
+      //     "/" +
+      //     month.toString() +
+      //     "/" +
+      //     (index - startingDay).toString());
+      return CalendarNumber(index, startingDay, month, year, false);
     }
-    return GestureDetector(
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          (index - startingDay).toString(),
-          style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w700),
-        ),
-        height: 120,
-      ),
-    );
   }
 }
