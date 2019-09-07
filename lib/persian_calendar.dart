@@ -2,7 +2,7 @@ library persian_calendar;
 
 import 'package:flutter/material.dart';
 import 'package:persian_calendar/widgets/convertor.dart';
-import 'package:calendar/Widgets/calendar/calendartable.dart';
+import 'package:persian_calendar/widgets/calendartable.dart';
 
 class Calendar extends StatefulWidget {
   final int startingYear;
