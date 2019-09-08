@@ -4,8 +4,7 @@ import 'package:persian_calendar/widgets/uiwidgets/calendarnumber.dart';
 class CalendarItem extends StatelessWidget {
   final int index, startingDay, month, year;
   final List<int> today;
-  const CalendarItem(
-      this.index, this.startingDay, this.month, this.year, this.today);
+  CalendarItem(this.index, this.startingDay, this.month, this.year, this.today);
 
   @override
   Widget build(BuildContext context) {
