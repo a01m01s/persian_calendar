@@ -51,12 +51,12 @@ class _PersianCalendarState extends State<PersianCalendar> {
                 ),
               ),
               actions: <Widget>[
-                FlatButton(
-                  child: Text('انصراف'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
+                // FlatButton(
+                //   child: Text('انصراف'),
+                //   onPressed: () {
+                //     Navigator.of(context).pop();
+                //   },
+                // ),
                 FlatButton(
                   child: Text('انتخاب'),
                   onPressed: () {
