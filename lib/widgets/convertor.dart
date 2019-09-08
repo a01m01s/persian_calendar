@@ -47,7 +47,7 @@ List<int> gregorianToJalali(int gyear, int gmonth, int gday) {
 
 List<int> jalaliToGregorian(int jyear, int jmonth, int jday) {
   int gyear, days, gday, kab, gmonth;
-  List<int> sal_a;
+  List<int> salA;
   if (jyear > 979) {
     gyear = 1600;
     jyear -= 979;
@@ -89,10 +89,10 @@ List<int> jalaliToGregorian(int jyear, int jmonth, int jday) {
   } else {
     kab = 28;
   }
-  sal_a = [0, 31, kab, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  salA = [0, 31, kab, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   gmonth = 0;
   while (gmonth < 13) {
-    int v = sal_a[gmonth];
+    int v = salA[gmonth];
     if (gday <= v) {
       break;
     }

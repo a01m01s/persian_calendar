@@ -1,14 +1,51 @@
 # persian_calendar
 
-A new Flutter package project.
+A Flutter package for persian dates and calendar
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+First, add `persian_calendar` as a [dependency in your pubspec.yaml file]
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:persian_calendar/persian_calendar.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Calendar",
+      home: CalendarPage(),
+    );
+  }
+}
+
+class CalendarPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: Icon(Icons.arrow_back),
+      ),
+      body: Container(
+        child: PersianCalendar(
+          startingYear: 1398,
+          startingMonth: 1,
+          endingYear: 1400,
+          endingMonth: 5,
+        ),
+      ),
+    );
+  }
+}
+
+```
