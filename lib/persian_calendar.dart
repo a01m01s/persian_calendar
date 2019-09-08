@@ -2,6 +2,7 @@ library persian_calendar;
 
 import 'package:flutter/material.dart';
 import 'package:persian_calendar/widgets/calendar.dart';
+import 'package:persian_calendar/model/calendar.dart' as calendar;
 
 class PersianCalendar extends StatefulWidget {
   final int startingYear;
@@ -20,6 +21,7 @@ class PersianCalendar extends StatefulWidget {
 }
 
 class _PersianCalendarState extends State<PersianCalendar> {
+  String theDate = 'Choose a date :)';
   final int startingYear;
   final int startingMonth;
   final int endingYear;
@@ -33,7 +35,7 @@ class _PersianCalendarState extends State<PersianCalendar> {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      child: Text('click on me!'),
+      child: Text(theDate),
       onPressed: () {
         showDialog(
           context: context,
@@ -58,6 +60,17 @@ class _PersianCalendarState extends State<PersianCalendar> {
                 FlatButton(
                   child: Text('انتخاب'),
                   onPressed: () {
+                    setState(() {
+                      if (calendar.Calendar.day == null) {
+                        theDate = 'Choose a date :)';
+                      } else {
+                        theDate = (calendar.Calendar.day[0].toString() +
+                            "/" +
+                            calendar.Calendar.day[1].toString() +
+                            "/" +
+                            calendar.Calendar.day[2].toString());
+                      }
+                    });
                     Navigator.of(context).pop();
                   },
                 ),

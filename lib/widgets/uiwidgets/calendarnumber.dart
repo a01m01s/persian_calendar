@@ -6,35 +6,42 @@ class CalendarNumber extends StatefulWidget {
   final int startingDay;
   final int month;
   final int year;
-  final bool isToday;
+  final List<int> today;
   CalendarNumber(
-      this.index, this.startingDay, this.month, this.year, this.isToday);
+      this.index, this.startingDay, this.month, this.year, this.today);
 
-  _CalendarNumberState createState() =>
-      _CalendarNumberState(index, startingDay, month, year, isToday);
+  _CalendarNumberState createState() => _CalendarNumberState();
 }
 
 class _CalendarNumberState extends State<CalendarNumber> {
-  final int index;
-  final int startingDay;
-  final int month;
-  final int year;
-  final bool isToday;
   Color myColor = Colors.white70;
-  _CalendarNumberState(
-      this.index, this.startingDay, this.month, this.year, this.isToday);
 
   @override
   void initState() {
     super.initState();
-    if (isToday) {
+    if ((widget.index - widget.startingDay) == widget.today[2] &&
+        widget.month == widget.today[1] &&
+        widget.year == widget.today[0]) {
       myColor = Color(0xFF00DFD4);
     }
-    // print(year.toString() +
+    if (calendar.Calendar.day != null) {
+      if ((widget.index - widget.startingDay) == calendar.Calendar.day[2] &&
+          widget.month == calendar.Calendar.day[1] &&
+          widget.year == calendar.Calendar.day[0]) {
+        myColor = Colors.red;
+        print(widget.year.toString() +
+            "/" +
+            widget.month.toString() +
+            "/" +
+            (widget.index - widget.startingDay).toString());
+      }
+    }
+    // TESTING::
+    // print(widget.year.toString() +
     //     "/" +
-    //     month.toString() +
+    //     widget.month.toString() +
     //     "/" +
-    //     (index - startingDay).toString());
+    //     (widget.index - widget.startingDay).toString());
   }
 
   @override
@@ -43,7 +50,7 @@ class _CalendarNumberState extends State<CalendarNumber> {
       child: Container(
         alignment: Alignment.center,
         child: Text(
-          (index - startingDay).toString(),
+          (widget.index - widget.startingDay).toString(),
           style: TextStyle(color: myColor, fontWeight: FontWeight.w700),
         ),
         height: 120,
@@ -53,27 +60,34 @@ class _CalendarNumberState extends State<CalendarNumber> {
           if (calendar.Calendar.check == 0) {
             myColor = Colors.red;
             calendar.Calendar.check += 1;
-            calendar.Calendar.day = [year, month, (index - startingDay)];
-            // print('selected day is:' +
-            //     calendar.Calendar.day[0].toString() +
-            //     "/" +
-            //     calendar.Calendar.day[1].toString() +
-            //     "/" +
-            //     calendar.Calendar.day[2].toString());
+            calendar.Calendar.day = [
+              widget.year,
+              widget.month,
+              (widget.index - widget.startingDay)
+            ];
+            print('selected day is:' +
+                calendar.Calendar.day[0].toString() +
+                "/" +
+                calendar.Calendar.day[1].toString() +
+                "/" +
+                calendar.Calendar.day[2].toString());
           }
         });
       },
       onDoubleTap: () {
         setState(() {
-          if (calendar.Calendar.day[0] == year &&
-              calendar.Calendar.day[1] == month &&
-              calendar.Calendar.day[2] == (index - startingDay)) {
+          if (calendar.Calendar.day[0] == widget.year &&
+              calendar.Calendar.day[1] == widget.month &&
+              calendar.Calendar.day[2] == (widget.index - widget.startingDay)) {
             calendar.Calendar.check -= 1;
-            if (isToday) {
+            if ((widget.index - widget.startingDay) == widget.today[2] &&
+                widget.month == widget.today[1] &&
+                widget.year == widget.today[0]) {
               myColor = Color(0xFF00DFD4);
             } else {
               myColor = Colors.white70;
             }
+            calendar.Calendar.day = null;
           }
         });
       },

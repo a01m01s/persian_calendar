@@ -47,24 +47,6 @@ Widget realIndex(
       height: 120,
     ));
   } else {
-    if ((index - startingDay) == today[2] &&
-        month == today[1] &&
-        year == today[0]) {
-      // print('selected day is:' +
-      //     year.toString() +
-      //     "/" +
-      //     month.toString() +
-      //     "/" +
-      //     (index - startingDay).toString());
-      return CalendarNumber(index, startingDay, month, year, true);
-    } else {
-      // print('selected day is:' +
-      //     year.toString() +
-      //     "/" +
-      //     month.toString() +
-      //     "/" +
-      //     (index - startingDay).toString());
-      return CalendarNumber(index, startingDay, month, year, false);
-    }
+    return CalendarNumber(index, startingDay, month, year, today);
   }
 }
