@@ -18,6 +18,7 @@ class _CalendarNumberState extends State<CalendarNumber> {
 
   @override
   void initState() {
+
     super.initState();
     if ((widget.index - widget.startingDay) == widget.today[2] &&
         widget.month == widget.today[1] &&

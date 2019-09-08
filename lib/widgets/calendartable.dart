@@ -17,7 +17,7 @@ class CalendarTable extends StatelessWidget {
       ),
       // child: Text(date.toString()),
       child: GridView.builder(
-        padding: EdgeInsets.all(3.0),
+        padding: EdgeInsets.all(1.0),
         itemCount:
             getItemCount(getDaysOfAMonth(month, year), getDay(year, month, 1)) +
                 1 +
