@@ -1,8 +1,8 @@
 name: persian_calendar
 description: A Flutter package for persian dates and calendar
 version: 0.0.1
-author: Amir Masood <amir01m01s@gmail.com>
-homepage: https://github.com/a01m01s/persian_calendar.git
+author: Amir Masood <amir01m01s@gmail.com>,Meysam Shams <meysam.shm@outlook.com>
+homepage: https://github.com/a01m01s/persian_calendar
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
