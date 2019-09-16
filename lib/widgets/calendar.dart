@@ -14,15 +14,10 @@ class Calendar extends StatefulWidget {
     @required this.endingMonth,
   });
 
-  CalendarState createState() =>
-      CalendarState(startingYear, startingMonth, endingYear, endingMonth);
+  CalendarState createState() => CalendarState();
 }
 
 class CalendarState extends State<Calendar> {
-  final int startingYear;
-  final int startingMonth;
-  final int endingYear;
-  final int endingMonth;
   final List<String> months = [
     "فروردین",
     "اردیبهشت",
@@ -51,32 +46,28 @@ class CalendarState extends State<Calendar> {
   List<int> today;
   int index;
   int currentYear;
-  CalendarState(
-    this.startingYear,
-    this.startingMonth,
-    this.endingYear,
-    this.endingMonth,
-  );
 
   @override
   void initState() {
     super.initState();
     // sOfMonths=(12-startingMonth+1)+endingMonth+(endingYear-startingYear-1)*12;
     today = gregorianToJalali(now.year, now.month, now.day);
-    currentYear = startingYear;
-    for (int i = startingMonth; i <= (12 - startingMonth + 1); i++) {
+    currentYear = widget.startingYear;
+    for (int i = widget.startingMonth;
+        i <= (12 - widget.startingMonth + 1);
+        i++) {
       thePath.add({currentYear: i});
     }
-    if (endingYear - startingYear > 1) {
+    if (widget.endingYear - widget.startingYear > 1) {
       currentYear += 1;
-      for (int i = currentYear; i < endingYear; i++) {
+      for (int i = currentYear; i < widget.endingYear; i++) {
         for (int j = 1; j <= 12; j++) {
           thePath.add({i: j});
         }
       }
     }
-    for (int i = 1; i <= endingMonth; i++) {
-      thePath.add({endingYear: i});
+    for (int i = 1; i <= widget.endingMonth; i++) {
+      thePath.add({widget.endingYear: i});
     }
     index = 0;
     // initialize the index based on today
