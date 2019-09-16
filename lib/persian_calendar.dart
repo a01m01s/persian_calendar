@@ -32,7 +32,12 @@ class _PersianCalendarState extends State<PersianCalendar> {
   _navigateAndDisplayDialog(BuildContext context) async {
     final result = await showDialog(
       context: context,
-      builder: (BuildContext context) => CustomDialog(theDate),
+      builder: (BuildContext context) => CustomDialog(
+          theDate: theDate,
+          startingYear: widget.startingYear,
+          startingMonth: widget.startingMonth,
+          endingYear: widget.endingYear,
+          endingMonth: widget.endingMonth),
     );
     Scaffold.of(context)
       ..removeCurrentSnackBar()

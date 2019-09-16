@@ -4,7 +4,16 @@ import 'package:persian_calendar/model/calendar.dart' as calendar;
 
 class CustomDialog extends StatefulWidget {
   String theDate;
-  CustomDialog(String theDate);
+  final int startingYear;
+  final int startingMonth;
+  final int endingYear;
+  final int endingMonth;
+  CustomDialog(
+      {String theDate,
+      @required this.startingYear,
+      @required this.startingMonth,
+      @required this.endingYear,
+      @required this.endingMonth});
 
   _CustomDialogState createState() => _CustomDialogState();
 }

@@ -85,48 +85,52 @@ class CalendarState extends State<Calendar> {
     return ListBody(
       // padding: EdgeInsets.all(8.0),
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              thePath[index].keys.elementAt(0).toString(),
-              style: TextStyle(fontSize: 25, color: Colors.black54),
-            ),
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: Color(0xFF36454F)),
-              onPressed: () {
-                setState(() {
-                  if (index > 0) {
-                    index--;
-                  }
-                });
-              },
-            ),
-            Text(
-              months[thePath[index].values.elementAt(0) - 1],
-              style: TextStyle(fontSize: 20, color: Colors.black54),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios,
-                color: Color(0xFF36454F),
-              ),
-              onPressed: () {
-                setState(() {
-                  if (index < thePath.length - 1) {
-                    index++;
-                  }
-                });
-              },
-            ),
-          ],
-        ),
+        _createYearAndMonthRow(),
         CalendarTable(
           month: thePath[index].values.elementAt(0),
           year: thePath[index].keys.elementAt(0),
           today: today,
         ),
         // SizedBox(height: 100.0),
+      ],
+    );
+  }
+
+  Widget _createYearAndMonthRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Text(
+          thePath[index].keys.elementAt(0).toString(),
+          style: TextStyle(fontSize: 25, color: Colors.black54),
+        ),
+        IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: Color(0xFF36454F)),
+          onPressed: () {
+            setState(() {
+              if (index > 0) {
+                index--;
+              }
+            });
+          },
+        ),
+        Text(
+          months[thePath[index].values.elementAt(0) - 1],
+          style: TextStyle(fontSize: 20, color: Colors.black54),
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.arrow_forward_ios,
+            color: Color(0xFF36454F),
+          ),
+          onPressed: () {
+            setState(() {
+              if (index < thePath.length - 1) {
+                index++;
+              }
+            });
+          },
+        ),
       ],
     );
   }
