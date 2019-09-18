@@ -18,7 +18,6 @@ class _CalendarNumberState extends State<CalendarNumber> {
 
   @override
   void initState() {
-
     super.initState();
     if ((widget.index - widget.startingDay) == widget.today[2] &&
         widget.month == widget.today[1] &&
@@ -52,7 +51,8 @@ class _CalendarNumberState extends State<CalendarNumber> {
         alignment: Alignment.center,
         child: Text(
           (widget.index - widget.startingDay).toString(),
-          style: TextStyle(color: myColor, fontWeight: FontWeight.w700),
+          style: TextStyle(
+              color: myColor, fontWeight: FontWeight.w700, fontSize: 17.0),
         ),
         height: 120,
       ),
