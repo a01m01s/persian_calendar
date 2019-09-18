@@ -39,6 +39,17 @@ class _PersianCalendarState extends State<PersianCalendar> {
           endingYear: widget.endingYear,
           endingMonth: widget.endingMonth),
     );
+    //   Scaffold.of(context)
+    //     ..removeCurrentSnackBar()
+    //     ..showSnackBar(SnackBar(content: Text("$result")));
+    getSnackBar(result, context);
+  }
+}
+
+getSnackBar(result, context) {
+  if (result == null) {
+    return;
+  } else {
     Scaffold.of(context)
       ..removeCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text("$result")));
